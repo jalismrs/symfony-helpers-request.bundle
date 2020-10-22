@@ -1,7 +1,7 @@
 <?php
 declare(strict_types = 1);
 
-namespace Jalismrs\ApiThrottlerBundle;
+namespace Jalismrs\HelpersRequestBundle;
 
 use Maba\GentleForce\Exception\RateLimitReachedException;
 use Maba\GentleForce\RateLimitProvider;
@@ -11,11 +11,11 @@ use function random_int;
 use function usleep;
 
 /**
- * Class ApiThrottler
+ * Class HelpersRequest
  *
- * @package Jalismrs\ApiThrottlerBundle
+ * @package Jalismrs\HelpersRequestBundle
  */
-class ApiThrottler
+class HelpersRequest
 {
     /**
      * cap
@@ -38,7 +38,7 @@ class ApiThrottler
     private ThrottlerInterface $throttler;
     
     /**
-     * ApiThrottler constructor.
+     * HelpersRequest constructor.
      *
      * @param \Maba\GentleForce\RateLimitProvider  $rateLimitProvider
      * @param \Maba\GentleForce\ThrottlerInterface $throttler
