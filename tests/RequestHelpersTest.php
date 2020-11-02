@@ -3,18 +3,18 @@ declare(strict_types = 1);
 
 namespace Tests;
 
-use Jalismrs\ErrorBundle\AssertionError;
-use Jalismrs\HelpersRequestBundle\RequestHelpers;
+use Jalismrs\Symfony\Common\Helpers\RequestHelpers;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
+use UnexpectedValueException;
 
 /**
  * Class RequestHelpersTest
  *
  * @package Tests
  *
- * @covers  \Jalismrs\HelpersRequestBundle\RequestHelpers
+ * @covers  \Jalismrs\Symfony\Common\Helpers\RequestHelpers
  */
 final class RequestHelpersTest extends
     TestCase
@@ -46,17 +46,17 @@ final class RequestHelpersTest extends
     }
     
     /**
-     * testGetRequestThrowsAssertionError
+     * testGetRequestThrowsUnexpectedValueException
      *
      * @return void
      */
-    public function testGetRequestThrowsAssertionError() : void
+    public function testGetRequestThrowsUnexpectedValueException() : void
     {
         // arrange
         $testRequestStack = new RequestStack();
         
         // expect
-        $this->expectException(AssertionError::class);
+        $this->expectException(UnexpectedValueException::class);
         $this->expectExceptionMessage('no request');
         
         // act

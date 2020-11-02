@@ -3,7 +3,7 @@ declare(strict_types = 1);
 
 namespace Tests;
 
-use Jalismrs\HelpersRequestBundle\RequestHelpers;
+use Jalismrs\Symfony\Common\Helpers\RequestHelpers;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
@@ -40,7 +40,7 @@ final class RequestHelpersProvider
             'without route: same name in different bag' => [
                 'input'  => new Request(
                     [
-                        RequestHelpers::ROUTE_ATTRIBUTE => self::ROUTE,
+                        RequestHelpers::ATTRIBUTE_ROUTE => self::ROUTE,
                     ]
                 ),
                 'output' => null,
@@ -50,7 +50,7 @@ final class RequestHelpersProvider
                     [],
                     [],
                     [
-                        RequestHelpers::ROUTE_ATTRIBUTE => self::ROUTE,
+                        RequestHelpers::ATTRIBUTE_ROUTE => self::ROUTE,
                     ]
                 ),
                 'output' => self::ROUTE,
@@ -71,7 +71,7 @@ final class RequestHelpersProvider
                     [],
                     [],
                     [
-                        RequestHelpers::ROUTE_ATTRIBUTE => 'api_data_',
+                        RequestHelpers::ATTRIBUTE_ROUTE => 'api_data_',
                     ]
                 ),
                 'output' => 'data',
@@ -81,7 +81,7 @@ final class RequestHelpersProvider
                     [],
                     [],
                     [
-                        RequestHelpers::ROUTE_ATTRIBUTE => 'api_parc_',
+                        RequestHelpers::ATTRIBUTE_ROUTE => 'api_parc_',
                     ]
                 ),
                 'output' => 'parc',
@@ -91,7 +91,7 @@ final class RequestHelpersProvider
                     [],
                     [],
                     [
-                        RequestHelpers::ROUTE_ATTRIBUTE => 'api_team_',
+                        RequestHelpers::ATTRIBUTE_ROUTE => 'api_team_',
                     ]
                 ),
                 'output' => 'team',
