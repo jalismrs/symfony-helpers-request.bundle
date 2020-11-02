@@ -1,19 +1,43 @@
-# Symfony Bundle Helpers Request
+# symfony.common.helpers.request
+
+Adds Symfony request helper methods
 
 ## Test
 
-`phpunit` OU `vendor/bin/phpunit`
+`phpunit` or `vendor/bin/phpunit`
 
 coverage reports will be available in `var/coverage`
 
 ## Use
 
+### getRequest
 ```php
-use Jalismrs\HelpersRequestBundle\RequestHelpers;
+use Jalismrs\Symfony\Common\Helpers\RequestHelpers;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 class SomeClass {
-    public function someCall() {
+    public function someCall(
+        RequestStack $requestStack
+    ): void {
+        $request = RequestHelpers::getRequest($requestStack);
+    
+        // do something
+    }
+}
+```
+
+### getRouteName
+```php
+use Jalismrs\Symfony\Common\Helpers\RequestHelpers;
+use Symfony\Component\HttpFoundation\Request;
+
+class SomeClass {
+    public function someCall(
+        Request $request
+    ): void {
         $routeName = RequestHelpers::getRouteName($request);
+    
+        // do something
     }
 }
 ```

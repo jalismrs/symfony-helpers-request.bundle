@@ -1,20 +1,20 @@
 <?php
 declare(strict_types = 1);
 
-namespace Jalismrs\HelpersRequestBundle;
+namespace Jalismrs\Symfony\Common\Helpers;
 
-use Jalismrs\ErrorBundle\AssertionError;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
+use UnexpectedValueException;
 
 /**
  * Class RequestHelpers
  *
- * @package Jalismrs\HelpersRequestBundle
+ * @package Jalismrs\Symfony\Common\Helpers
  */
 class RequestHelpers
 {
-    public const ROUTE_ATTRIBUTE = '_route';
+    public const ATTRIBUTE_ROUTE = '_route';
     
     /**
      * getRequest
@@ -30,7 +30,7 @@ class RequestHelpers
     ) : Request {
         $request = $requestStack->getCurrentRequest();
         if (!$request instanceof Request) {
-            throw new AssertionError(
+            throw new UnexpectedValueException(
                 'no request'
             );
         }
@@ -52,6 +52,6 @@ class RequestHelpers
     ) : ?string {
         return $request
             ->attributes
-            ->get(self::ROUTE_ATTRIBUTE);
+            ->get(self::ATTRIBUTE_ROUTE);
     }
 }
